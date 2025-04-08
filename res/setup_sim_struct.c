@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   setup_sim_struct.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 11:30:14 by irobinso          #+#    #+#             */
-/*   Updated: 2025/04/07 16:08:16 by irobinso         ###   ########.fr       */
+/*   Created: 2025/04/07 15:48:34 by irobinso          #+#    #+#             */
+/*   Updated: 2025/04/07 15:48:37 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/philo.h"
+#include "../inc/philo.h"
 
-int	main(int argc, char **argv)
+
+// MALLOC THE SIZE AND SET ALL TO NULL //
+void	setup_sim_struct(t_simulation *sim)
 {
-	t_simulation	sim;
-
-	checker(argc, argv);
-	setup_sim_struct(&sim);
-	sim.philo_num = ft_atoi(argv[1]);
-	print_sim_stats(&sim);
-	free_struct(&sim);
-	return (0);
+	sim = malloc(sizeof(t_simulation));
+	if (!sim)
+	{
+		printf("Failed to allocate memory for simulation structure\n");
+		exit(EXIT_FAILURE);
+	}
+	sim->philo_num = 0;
+	sim->forks = NULL;
+	sim->philos = NULL;
 }

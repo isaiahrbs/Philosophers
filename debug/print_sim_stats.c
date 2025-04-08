@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_sim_stats.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 11:30:14 by irobinso          #+#    #+#             */
-/*   Updated: 2025/04/07 16:08:16 by irobinso         ###   ########.fr       */
+/*   Created: 2025/04/07 15:48:31 by irobinso          #+#    #+#             */
+/*   Updated: 2025/04/07 15:51:47 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/philo.h"
+#include "../inc/philo.h"
 
-int	main(int argc, char **argv)
+void	print_sim_stats(t_simulation *sim)
 {
-	t_simulation	sim;
-
-	checker(argc, argv);
-	setup_sim_struct(&sim);
-	sim.philo_num = ft_atoi(argv[1]);
-	print_sim_stats(&sim);
-	free_struct(&sim);
-	return (0);
+	printf("Philosophers: %d\n", sim->philo_num);
+	printf("Forks: %p\n", sim->forks);
 }
