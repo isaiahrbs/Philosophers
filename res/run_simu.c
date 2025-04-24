@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   run_simu.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 11:30:14 by irobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 12:58:10 by irobinso         ###   ########.fr       */
+/*   Created: 2025/04/24 12:58:37 by irobinso          #+#    #+#             */
+/*   Updated: 2025/04/24 13:54:19 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/philo.h"
+#include "../inc/philo.h"
 
-int	main(int argc, char **argv)
+void	run_simulation(t_sim *sim)
 {
-	t_sim	sim;
 
-	checker(argc, argv);
-	setup_sim_struct(&sim, argc, argv);
-	run_simulation(&sim);
-	print_sim_stats(&sim);
-	free_struct(&sim);
-	return (0);
 }
