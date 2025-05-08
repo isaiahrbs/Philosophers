@@ -26,8 +26,7 @@ int	ft_isnum(char *str)
 	return (0);
 }
 
-#include <stdio.h>
-
+//* COMPRIS
 int	check_args(int argc, char **argv)
 {
 	if (argc != 5 || argc != 6)
@@ -55,7 +54,7 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv) == 1)
 		return (1);
-	init_simu(&simulation, philos);
+	init_simulation(&simulation, philos);
 	init_forks(forks, ft_atoi(argv[1]));
 	init_philos(&simulation, forks, argv);
 	init_input(argv, &simulation);

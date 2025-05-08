@@ -37,10 +37,10 @@ typedef struct s_philo
 
 typedef struct s_simu
 {
-	int		dead_flag;
-	t_mutex	dead_lock;
-	t_mutex	meal_lock;
-	t_mutex	write_lock;
+	int		dead_flag;//*This means no philosopher has died at the start of the simulation
+	t_mutex	dead_lock;//* so that only one thread updates the death count at a time.
+	t_mutex	meal_lock;//* so monitor waits to read before the thread locks
+	t_mutex	write_lock;//*ensures only one thread can write at a time
 	t_philo	*philos;
 }	t_simu;
 
