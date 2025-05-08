@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_simu.c                                         :+:      :+:    :+:   */
+/*   create_threads.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 12:58:37 by irobinso          #+#    #+#             */
-/*   Updated: 2025/04/24 13:54:19 by irobinso         ###   ########.fr       */
+/*   Created: 2025/05/06 17:31:13 by irobinso          #+#    #+#             */
+/*   Updated: 2025/05/07 11:50:09 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "../includes/philo.h"
 
-void	run_simulation(t_sim *sim)
+int	create_thread(t_simu *simu, t_mutex *forks)
 {
+	pthread_t	observer;
+	int			i;
 
+	if (pthread_create(&observer, NULL, &monitor, simu->philos) != 0)
+		purge("Error: Thread creation", simu, forks);
+	
 }

@@ -1,0 +1,12 @@
+pthread_mutex_t is just a struct that holds 2 things:
+
+LOCK,
+
+UNLOCK,
+
+it is so that when a thead comes to the line, the very
+first one will lock and then the other ones will have to wait
+or do something else idk but they are waiting they cant pass
+this line, the thread that has locked it can now do his things
+by following the rest of the code and then once he is done
+he will unlock it and another thread will come and lock it again
