@@ -1,4 +1,5 @@
-#include "philosophers.h"
+#include "philo.h"
+#include "utils.h"
 
 static int	is_digit(char c)
 {
@@ -23,23 +24,6 @@ static int	is_valid_number(const char *str)
 		i++;
 	}
 	return (1);
-}
-
-int	ft_atoi(const char *str)
-{
-	int		result;
-	int		i;
-
-	result = 0;
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	while (str[i] && is_digit(str[i]))
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result);
 }
 
 static int	check_argument_ranges(int argc, char **argv)
@@ -69,13 +53,16 @@ int	validate_input(int argc, char **argv)
 		printf("Usage: %s number_of_philosophers time_to_die ", argv[0]);
 		printf("time_to_eat time_to_sleep [number_of_times_each_");
 		printf("philosopher_must_eat]\n");
-		return (1);
+		exit(EXIT_FAILURE);
 	}
 	i = 1;
 	while (i < argc)
 	{
 		if (!is_valid_number(argv[i]))
-			return (printf("Error: Invalid argument '%s'\n", argv[i]), 1);
+		{
+			printf("Error: Invalid argument '%s'\n", argv[i]);
+			exit(EXIT_FAILURE);
+		}
 		i++;
 	}
 	return (check_argument_ranges(argc, argv));

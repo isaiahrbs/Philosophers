@@ -10,5 +10,6 @@ int	main(int argc, char **argv)
 	init_simu(&simu, argc, argv);
 	init_forks(&simu);
 	init_philos(&philos, &simu);
+	printf("initialized\n");
 	create_threads(&philos, &simu);
 }

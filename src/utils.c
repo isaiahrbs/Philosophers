@@ -1,4 +1,5 @@
-#include "philosophers.h"
+#include "philo.h"
+#include "utils.h"
 
 long	get_current_time(void)
 {
@@ -102,7 +103,7 @@ int	is_valid_number(const char *str)
 		return (FALSE);
 
 	i = 0;
-	
+
 	// Skip leading whitespace
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
