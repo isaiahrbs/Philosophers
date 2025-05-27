@@ -47,7 +47,7 @@ void	cleanup_threads(t_philo **philos, t_simu *simu)
 void	cleanup(t_philo **philos, t_simu *simu)
 {
     if (simu)
-        simu->simulation_end = TRUE;
+        set_simulation_end(simu);
     cleanup_threads(philos, simu);
     cleanup_forks(simu);
     cleanup_mutexes(simu);

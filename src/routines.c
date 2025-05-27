@@ -114,7 +114,6 @@ void	*philo_routine(void *arg)
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
 		precise_usleep(philo->simu->time_to_eat * 500);
-	printf("Entering routine loop\n");
 	while (!simulation_ended(philo->simu))
 	{
 		if (!take_forks(philo))
@@ -130,6 +129,5 @@ void	*philo_routine(void *arg)
 
 		sleep_and_think(philo);
 	}
-	printf("Exiting Routine loop\n");
 	return (NULL);
 }
