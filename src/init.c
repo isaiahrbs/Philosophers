@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 16:12:15 by irobinso          #+#    #+#             */
+/*   Updated: 2025/05/27 16:12:17 by irobinso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 #include "utils.h"
 
 int	init_simu(t_simu *simu, int argc, char **argv)
 {
 	memset(simu, 0, sizeof(t_simu));// CHANGE THAT TO FT_
-	
+
 	simu->nb_philos = ft_atoi(argv[1]);
 	simu->time_to_die = ft_atoi(argv[2]);
 	simu->time_to_eat = ft_atoi(argv[3]);
 	simu->time_to_sleep = ft_atoi(argv[4]);
-	
+
 	if (argc == 6)
 		simu->nb_meals = ft_atoi(argv[5]);
 	else
 		simu->nb_meals = -1;
-	
+
 	// Simulation != finished & save Start time
 	simu->simulation_end = FALSE;
 	simu->start_time = get_current_time();

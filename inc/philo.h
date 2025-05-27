@@ -1,5 +1,17 @@
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 16:11:03 by irobinso          #+#    #+#             */
+/*   Updated: 2025/05/27 16:13:33 by irobinso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PHILO_H
+# define PHILO_H
 
 # include <stdio.h>
 # include <stdlib.h>

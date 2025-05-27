@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   threads.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 16:12:45 by irobinso          #+#    #+#             */
+/*   Updated: 2025/05/27 16:12:46 by irobinso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 #include "../inc/utils.h"
 
@@ -40,7 +52,7 @@ int	create_threads(t_philo **philos, t_simu *simu)
 			exit(EXIT_FAILURE);
 		}
 		i++;
-    }
+	}
 	// wait for threads to finish
 	pthread_join(p_monitor, NULL);
 	return (1);

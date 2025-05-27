@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   monitor.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 16:12:31 by irobinso          #+#    #+#             */
+/*   Updated: 2025/05/27 16:12:33 by irobinso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 #include "utils.h"
 
@@ -8,7 +20,7 @@ int	monitor_deaths(t_philo *philos, t_simu *simu)
 	long	time_since_meal;
 
 	current_time = get_current_time();
-	
+
 	i = 0;
 	while (i < simu->nb_philos)
 	{
@@ -32,7 +44,7 @@ int	check_meals_eaten(t_philo *philos, t_simu *simu)
 	int	completed_meals;
 
 	completed_meals = 0;
-	
+
 	i = 0;
 	while (i < simu->nb_philos)
 	{
