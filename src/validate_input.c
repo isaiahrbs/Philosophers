@@ -1,31 +1,6 @@
 #include "philo.h"
 #include "utils.h"
 
-static int	is_digit(char c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-static int	is_valid_number(const char *str)
-{
-	int	i;
-
-	if (!str || !*str)
-		return (0);
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (!is_digit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 static int	check_argument_ranges(int argc, char **argv)
 {
 	int	num_philos;

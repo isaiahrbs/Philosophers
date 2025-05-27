@@ -1,6 +1,11 @@
 #include "philo.h"
 #include "utils.h"
 
+static int	is_digit(char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
 long	get_current_time(void)
 {
 	struct timeval	tv;
@@ -32,7 +37,7 @@ void	safe_print(t_philo *philo, char *action)
 	if (!simulation_ended(philo->simu))
 	{
 		timestamp = get_current_time() - philo->simu->start_time;
-		printf("%ld %d %s\n", timestamp, philo->id, action);
+		printf("%ldms - P%d: %s\n", timestamp, philo->id, action);
 	}
 	pthread_mutex_unlock(&philo->simu->print_mutex);
 }
@@ -100,37 +105,17 @@ int	is_valid_number(const char *str)
 	int	i;
 
 	if (!str || !*str)
-		return (FALSE);
-
+		return (0);
 	i = 0;
-
-	// Skip leading whitespace
-	while (str[i] == ' ' || str[i] == '\t')
+	if (str[i] == '+')
 		i++;
-
-	// Handle optional sign
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			return (FALSE); // Negative numbers not allowed
-		i++;
-	}
-
-	// Check if there's at least one digit
-	if (!str[i] || str[i] < '0' || str[i] > '9')
-		return (FALSE);
-
-	// Check all remaining characters are digits
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (FALSE);
+		if (!is_digit(str[i]))
+			return (0);
 		i++;
 	}
-
-	// Check for overflow
-	if (ft_atoi(str) <= 0)
-		return (FALSE);
-
-	return (TRUE);
+	return (1);
 }

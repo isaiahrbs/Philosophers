@@ -12,4 +12,14 @@ int	main(int argc, char **argv)
 	init_philos(&philos, &simu);
 	printf("initialized\n");
 	create_threads(&philos, &simu);
+	while (!simulation_ended(&simu))
+	{
+        usleep(1000);
+	}
+	if (simu.simulation_end)
+	{
+		printf("Cleanup! function: main\n");
+		cleanup(&philos, &simu);
+	}
+	return (0);
 }

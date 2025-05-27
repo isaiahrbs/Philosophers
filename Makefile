@@ -1,6 +1,6 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -Werror -Iinc
-SRC     = src/init.c src/main.c src/validate_input.c src/utils.c
+SRC     = src/init.c src/main.c src/validate_input.c src/utils.c src/threads.c src/cleanup.c src/routines.c src/monitor.c
 OBJ     = $(SRC:src/%.c=obj/%.o)
 NAME    = philo
 
@@ -24,7 +24,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -rf obj
 
 re: fclean all
 
-.PHONY: all clean fclean re objdir
+.PHONY: all clean fclean re
