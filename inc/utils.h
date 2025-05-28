@@ -6,7 +6,7 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:11:40 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/27 16:13:19 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:24:36 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		init_simu(t_simu *simu, int argc, char **argv);
 int		create_threads(t_philo **philos, t_simu *simu);
 void	*philo_routine(void *arg);
 void	*monitor_routine(void *arg);
+int		check_alone(t_philo *philo);
+void	assign_forks(t_philo *philo, int *first_fork, int *second_fork);
 
 // UTILS
 // --------

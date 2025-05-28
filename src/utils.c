@@ -6,17 +6,12 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:57 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/27 16:12:58 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:41:57 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
-#include "utils.h"
-
-static int	is_digit(char c)
-{
-	return (c >= '0' && c <= '9');
-}
+#include "../inc/philo.h"
+#include "../inc/utils.h"
 
 long	get_current_time(void)
 {
@@ -36,8 +31,8 @@ void	precise_usleep(long microseconds)
 	{
 		current_time = get_current_time() * 1000;
 		if (current_time - start_time >= microseconds)
-			break;
-		usleep(100); // Small sleep to prevent busy waiting
+			break ;
+		usleep(100);
 	}
 }
 
@@ -69,65 +64,4 @@ void	set_simulation_end(t_simu *simu)
 	pthread_mutex_lock(&simu->end_mutex);
 	simu->simulation_end = TRUE;
 	pthread_mutex_unlock(&simu->end_mutex);
-}
-
-int	ft_atoi(const char *str)
-{
-	int	result;
-	int	sign;
-	int	i;
-
-	result = 0;
-	sign = 1;
-	i = 0;
-
-	// Skip whitespace
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
-		   str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
-
-	// Handle sign
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-
-	// Convert digits
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		// Check for overflow
-		if (result > (2147483647 - (str[i] - '0')) / 10)
-		{
-			if (sign == 1)
-				return (2147483647);
-			else
-				return (-2147483648);
-		}
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-
-	return (result * sign);
-}
-
-int	is_valid_number(const char *str)
-{
-	int	i;
-
-	if (!str || !*str)
-		return (0);
-	i = 0;
-	if (str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (!is_digit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:24 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/27 16:12:25 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:17:06 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(int argc, char **argv)
 {
 	t_simu	simu;
-	t_philo	*philos;//pointer to store multiple philosophers
+	t_philo	*philos;
 
 	validate_input(argc, argv);
 	init_simu(&simu, argc, argv);
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 	{
 		usleep(1000);
 	}
-	if (simu.simulation_end)
-		cleanup(&philos, &simu);
+	cleanup(&philos, &simu);
 	return (0);
 }

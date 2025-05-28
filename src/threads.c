@@ -6,11 +6,11 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:45 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/27 16:12:46 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:27:03 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../inc/philo.h"
 #include "../inc/utils.h"
 
 int	create_monitor_thread(t_philo **philos, t_simu *simu, pthread_t *p_monitor)
@@ -37,13 +37,12 @@ int	create_threads(t_philo **philos, t_simu *simu)
 	pthread_t	p_monitor;
 
 	i = 0;
-	// add a thread that will be given the monitor routine and if failed, cleanup */
 	create_monitor_thread(philos, simu, &p_monitor);
-
 	printf("Entered thread creation function\n");
 	while (i < simu->nb_philos)
 	{
-		if (pthread_create(&(*philos)[i].thread, NULL, philo_routine, &(*philos)[i]) != 0)
+		if (pthread_create(&(*philos)[i].thread, NULL,
+			philo_routine, &(*philos)[i]) != 0)
 		{
 			set_simulation_end(simu);
 			while (--i >= 0)
@@ -53,7 +52,6 @@ int	create_threads(t_philo **philos, t_simu *simu)
 		}
 		i++;
 	}
-	// wait for threads to finish
 	pthread_join(p_monitor, NULL);
 	return (1);
 }

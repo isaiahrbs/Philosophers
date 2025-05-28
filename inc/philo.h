@@ -6,7 +6,7 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:11:03 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/27 16:13:33 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/05/27 17:10:56 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <string.h>
+# include "../libft/inc/libft.h"
 
 # define MAX_PHILOS 200
 # define TRUE 1
