@@ -6,7 +6,7 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:39 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/28 10:24:10 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/05/28 17:37:09 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void	put_forks(t_philo *philo)
 
 void	eat(t_philo *philo)
 {
-	safe_print(philo, "is eating. 🍽️");
 	pthread_mutex_lock(&philo->simu->meal_mutex);
 	philo->last_meal_time = get_current_time();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->simu->meal_mutex);
+	safe_print(philo, "is eating. 🍽️");
 	precise_usleep(philo->simu->time_to_eat * 1000);
 }
 
@@ -84,6 +84,7 @@ void	*philo_routine(void *arg)
 			&& philo->meals_eaten >= philo->simu->nb_meals)
 			break ;
 		sleep_and_think(philo);
+		//safe_print(philo, "finished a cycle. 🔄✅");
 	}
 	return (NULL);
 }

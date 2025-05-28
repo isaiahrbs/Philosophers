@@ -6,7 +6,7 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:45 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/28 10:27:03 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:22:55 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	create_threads(t_philo **philos, t_simu *simu)
 
 	i = 0;
 	create_monitor_thread(philos, simu, &p_monitor);
-	printf("Entered thread creation function\n");
 	while (i < simu->nb_philos)
 	{
 		if (pthread_create(&(*philos)[i].thread, NULL,
