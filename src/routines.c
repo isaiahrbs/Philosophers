@@ -6,7 +6,7 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:39 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/28 17:37:09 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/06/03 08:36:01 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	*philo_routine(void *arg)
 			&& philo->meals_eaten >= philo->simu->nb_meals)
 			break ;
 		sleep_and_think(philo);
-		//safe_print(philo, "finished a cycle. 🔄✅");
 	}
 	return (NULL);
 }

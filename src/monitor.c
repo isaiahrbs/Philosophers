@@ -6,14 +6,14 @@
 /*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:31 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/28 17:25:03 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/06/03 08:35:50 by irobinso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 #include "utils.h"
 
-int monitor_deaths(t_philo *philos, t_simu *simu)
+int	monitor_deaths(t_philo *philos, t_simu *simu)
 {
 	int		i;
 	long	current_time;
@@ -27,7 +27,7 @@ int monitor_deaths(t_philo *philos, t_simu *simu)
 		{
 			pthread_mutex_unlock(&simu->meal_mutex);
 			i++;
-			continue;
+			continue ;
 		}
 		current_time = get_current_time();
 		time_since_meal = current_time - philos[i].last_meal_time;
@@ -78,7 +78,7 @@ void	*monitor_routine(void *arg)
 			set_simulation_end(philos->simu);
 			break ;
 		}
-		usleep(1000);
+		usleep(100);
 	}
 	return (NULL);
 }
