@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: isaiah <isaiah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:12:24 by irobinso          #+#    #+#             */
-/*   Updated: 2025/05/28 10:17:06 by irobinso         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:34:34 by isaiah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main(int argc, char **argv)
 	t_simu	simu;
 	t_philo	*philos;
 
-	validate_input(argc, argv);
+	if (validate_input(argc, argv))
+		return (1);
 	init_simu(&simu, argc, argv);
 	init_forks(&simu);
 	init_philos(&philos, &simu);
